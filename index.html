@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário Eletrônico - Curso Técnico de Enfermagem</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+    <h1>🩺 Prontuário Eletrônico Educacional - Técnico em Enfermagem</h1>
+    
+    <!-- IDENTIFICAÇÃO DO PACIENTE -->
+    <div class="section">
+        <h2>📋 Identificação do Paciente</h2>
+        <label>Nome completo do paciente:</label>
+        <input type="text" id="nomeCompleto" placeholder="Ex: João Silva Santos">
+        
+        <label>Nome social do paciente:</label>
+        <input type="text" id="nomeSocial" placeholder="Nome pelo qual prefere ser chamado">
+        
+        <label>Data de nascimento:</label>
+        <input type="date" id="dataNascimento">
+        
+        <label>Sexo:</label>
+        <select id="sexo">
+            <option value="">Selecione</option>
+            <option value="M">Masculino</option>
+            <option value="F">Feminino</option>
+            <option value="O">Outro</option>
+        </select>
+        
+        <label>Nome da mãe:</label>
+        <input type="text" id="nomeMae" placeholder="Ex: Maria Silva">
+        
+        <label>Naturalidade:</label>
+        <input type="text" id="naturalidade" placeholder="Ex: Cariacica/ES">
+        
+        <label>Endereço completo:</label>
+        <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade/UF">
+        
+        <label>Documento de identificação (RG/CPF):</label>
+        <input type="text" id="documento" placeholder="Ex: RG: 12.345.678-9 / CPF: 123.456.789-00">
+        
+        <label>Estado civil:</label>
+        <select id="estadoCivil">
+            <option value="">Selecione</option>
+            <option value="Solteiro(a)">Solteiro(a)</option>
+            <option value="Casado(a)">Casado(a)</option>
+            <option value="Divorciado(a)">Divorciado(a)</option>
+            <option value="Viúvo(a)">Viúvo(a)</option>
+        </select>
+        
+        <label>Cartão do SUS:</label>
+        <input type="text" id="cartaoSUS" placeholder="Ex: 123456789012345">
+        
+        <label>Convênio/Plano de Saúde:</label>
+        <input type="text" id="convenio" placeholder="Ex: Unimed / Particular">
+        
+        <label>Contato de um familiar:</label>
+        <input type="tel" id="contatoFamiliar" placeholder="Ex: (27) 99999-9999 - Nome do familiar">
+    </div>
+    
+    <!-- Sinais Vitais -->
+    <div class="section">
+        <h2>📊 Sinais Vitais</h2>
+        <div class="vitals-grid">
+            <div>
+                <label>PA (mmHg):</label>
+                <input type="text" placeholder="Ex: 120/80">
+            </div>
+            <div>
+                <label>FC (bpm):</label>
+                <input type="number" placeholder="Ex: 80">
+            </div>
+            <div>
+                <label>FR (irpm):</label>
+                <input type="number" placeholder="Ex: 18">
+            </div>
+            <div>
+                <label>Temperatura (°C):</label>
+                <input type="number" step="0.1" placeholder="Ex: 36.5">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Anotações -->
+    <div class="section">
+        <h2>📝 Anotações de Enfermagem</h2>
+        <textarea id="anotacoes" placeholder="Registre aqui as anotações seguindo EVOLUÇÃO, SOAP ou DAR... Ex: Paciente orientado, refeição ingerida sem intercorrências. Orientado sobre medicação."></textarea>
+    </div>
+    
+    <button onclick="salvarProntuario()">💾 Salvar Registro</button>
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Prontuário</button>
+    
+    <script>
+        function salvarProntuario() {
+            const dadosPaciente = {
+                nomeCompleto: document.getElementById('nomeCompleto').value,
+                nomeSocial: document.getElementById('nomeSocial').value,
+                dataNascimento: document.getElementById('dataNascimento').value,
+                sexo: document.getElementById('sexo').value,
+                nomeMae: document.getElementById('nomeMae').value,
+                naturalidade: document.getElementById('naturalidade').value,
+                endereco: document.getElementById('endereco').value,
+                documento: document.getElementById('documento').value,
+                estadoCivil: document.getElementById('estadoCivil').value,
+                cartaoSUS: document.getElementById('cartaoSUS').value,
+                convenio: document.getElementById('convenio').value,
+                contatoFamiliar: document.getElementById('contatoFamiliar').value,
+                anotacoes: document.getElementById('anotacoes').value
+            };
+            console.log('✅ Prontuário salvo:', dadosPaciente);
+            alert('✅ Registro salvo com sucesso!\n\nDados salvos no console (F12).\nPronto para integrar com banco de dados!');
+        }
+    </script>
+</body>
+</html>
