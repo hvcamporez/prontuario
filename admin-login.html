@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Administrador - Prontuário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo">🛡️</div>
+        <h1 class="login-title">Acesso Administrativo</h1>
+        <p class="login-subtitle">Restrito à coordenação</p>
+
+        <form onsubmit="return fazerLoginAdmin(event)">
+            <div class="input-group">
+                <label>Usuário</label>
+                <input class="input-field" type="text" id="adminUsuario" placeholder="admin" required>
+            </div>
+            <div class="input-group">
+                <label>Senha</label>
+                <input class="input-field" type="password" id="adminSenha" placeholder="admin123" required>
+            </div>
+            <button type="submit" class="login-button">Entrar como administrador</button>
+        </form>
+    </div>
+
+    <script src="script/dados.js"></script>
+    <script src="script/admin-login.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário Eletrônico Educacional🩺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <!-- LOGO -->
+        <div class="login-logo">🩺</div>
+        
+        <!-- TÍTULO -->
+        <h1 class="login-title">Bem-vindo</h1>
+        <p class="login-subtitle">Acesse o sistema de prontuário</p>
+        
+        <!-- FORMULÁRIO -->
+        <form onsubmit="return fazerLogin(event)">
+            <div class="input-group">
+                <label>Usuário</label>
+                <input class="input-field" type="text" id="usuario" placeholder="aluno@escola.br" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Senha</label>
+                <input class="input-field" type="password" id="senha" placeholder="••••••••" required>
+            </div>
+            
+            <button type="submit" class="login-button">Entrar</button>
+        </form>
+        
+    </div>
+
+    <script src="dados.js"></script>
+<script>
+const ADMIN_PADRAO = {
+    usuario: 'admin',
+    senha: 'admin123',
+    nome: 'Administrador do Sistema'
+};
+
+function fazerLogin(event) {
+    event.preventDefault();
+    
+    const usuario = document.getElementById('usuario').value;
+    const senha = document.getElementById('senha').value;
+    
+    // Tenta login PROFISSIONAL primeiro
+    const profissionais = banco.obterProfissionais();
+    const profissional = profissionais.find(p => p.login === usuario && p.senha === senha);
+    
+    if (profissional) {
+        banco.salvarProfissionalLogado(profissional);
+        banco.salvarTipoUsuarioLogado('profissional');
+        window.location.href = 'prontuario.html'; // PROFISSIONAL → PRONTUÁRIO
+        return;
+    }
+    
+    // Tenta login ADMIN
+    if (usuario === ADMIN_PADRAO.usuario && senha === ADMIN_PADRAO.senha) {
+        banco.salvarAdminLogado(ADMIN_PADRAO);
+        banco.salvarTipoUsuarioLogado('admin');
+        window.location.href = 'admin-dashboard.html'; // ADMIN → DASHBOARD
+        return;
+    }
+    
+    alert('❌ Credenciais incorretas!\n💡 Profissional ou Admin: cadastre/cadastre primeiro!');
+}
+</script>
+
+
+</body>
+</html>

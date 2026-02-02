@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário Digital - Hospital São Lucas 🩺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🩺</text></svg>">
+</head>
+<body>
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-hospital">
+                <div class="logo-icon">🩺</div>
+                <h1 class="hospital-name">Hospital São Lucas</h1>
+                <p class="hospital-subtitle">Sistema Digital de Prontuário</p>
+            </div>
+            
+            <div class="hero-stats">
+    <div class="stat">
+        <div class="card-icon">📝</div>
+        <div class="stat-number" data-target="0" id="registrosHoje">0</div>
+        <div class="stat-label">Registros Hoje</div>
+    </div>
+    <div class="stat">
+        <div class="card-icon">📊</div>
+        <div class="stat-number" data-target="0" id="totalRegistros">0</div>
+        <div class="stat-label">Total Registros</div>
+    </div>
+    <div class="stat">
+        <div class="card-icon">👨‍⚕️</div>
+        <div class="stat-number" data-target="0" id="totalProfissionais">0</div>
+        <div class="stat-label">Total Profissionais</div>
+    </div>
+    <div class="stat">
+        <div class="card-icon">👥</div>
+        <div class="stat-number" data-target="0" id="totalPacientes">0</div>
+        <div class="stat-label">Total Pacientes</div>
+    </div>
+</div>
+    </section>
+
+    <!-- CARDS DE NAVEGAÇÃO -->
+    <section class="cards-section">
+        <div class="container">
+            <div class="cards-grid">
+                <a href="login.html" class="card-nav">
+                    <div class="card-icon">🔐</div>
+                    <h3>Login Profissional</h3>
+                    <p>Acesse o sistema de prontuário</p>
+                </a>
+                
+                <a href="profissionais.html" class="card-nav">
+                    <div class="card-icon">👥</div>
+                    <h3>Gestão Profissionais</h3>
+                    <p>Cadastre médicos e enfermeiros</p>
+                </a>
+                
+                <a href="historico.html" class="card-nav">
+                    <div class="card-icon">📋</div>
+                    <h3>Histórico Anotações</h3>
+                    <p>Relatórios e auditoria</p>
+                </a>
+                
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Hospital São Lucas - Sistema Educacional de Prontuário Digital</p>
+            <p class="small">Desenvolvido para Curso Técnico de Enfermagem</p>
+        </div>
+    </footer>
+
+    <script src="script/index.js"></script>
+</body>
+</html>

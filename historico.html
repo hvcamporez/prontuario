@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário Eletrônico Educacional 🩺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/historico.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo">📋 Histórico</div>
+            <h1>Anotações de Enfermagem</h1>
+            <p>Relatório completo de todos os registros</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalAnotacoes">0</span>
+                    <span>Total de registros</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalPacientes">0</span>
+                    <span>Pacientes únicos</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FILTROS -->
+        <div class="filters-card">
+            <div class="filter-group">
+                <input type="text" id="buscaPaciente" placeholder="Buscar por paciente...">
+                <select id="filtroProfissional">
+                    <option value="">Todos os profissionais</option>
+                </select>
+                <select id="filtroData">
+                    <option value="">Todas as datas</option>
+                    <option value="hoje">Hoje</option>
+                    <option value="ontem">Ontem</option>
+                    <option value="7dias">7 dias</option>
+                </select>
+                <button onclick="filtrarAnotacoes()" class="btn-secondary">Filtrar</button>
+                <button onclick="limparFiltros()" class="btn-outline">Limpar</button>
+            </div>
+        </div>
+
+        <!-- TABELA HISTÓRICO -->
+        <div class="table-card">
+            <div class="table-header">
+                <h2>Registros <span id="registrosMostrados">0</span> de <span id="totalFiltrado">0</span></h2>
+                <button onclick="exportarCSV()" class="btn-download">📥 Exportar CSV</button>
+            </div>
+            <div class="table-container">
+                <table id="tabelaHistorico">
+                    <thead>
+                        <tr>
+                            <th>Data/Hora</th>
+                            <th>Paciente</th>
+                            <th>Anotação</th>
+                            <th>Profissional</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyHistorico">
+                        <tr><td colspan="5" style="text-align:center;color:#94a3b8;">Carregando...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="paginacao" class="paginacao"></div>
+        </div>
+    </div>
+
+    <script src="script/dados.js"></script>
+    <script src="script/historico.js"></script>
+</body>
+</html>

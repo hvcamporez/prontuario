@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prontuário Eletrônico Educacional 🩺</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/profissionais.css">
+</head>
+
+<div class="header">
+    <div class="logo">🩺 Profissionais</div>
+    <h1>Gestão de Profissionais</h1>
+    <p>Área administrativa exclusiva</p>
+    
+    <!-- NOVO: Info e Logout Admin -->
+    <div class="admin-bar" style="margin-top: 20px; padding: 12px; background: #fef3c7; border-radius: 8px; border-left: 4px solid #f59e0b;">
+        <span id="adminInfo">Carregando...</span>
+        <button onclick="logoutAdminProf()" style="margin-left: 16px; background: #ef4444; color: white; border: none; padding: 6px 16px; border-radius: 6px; cursor: pointer; font-size: 0.85rem;">Sair Admin</button>
+    </div>
+</div>
+
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">🩺 Profissionais</div>
+            <h1>Gestão de Profissionais</h1>
+            <p>Área administrativa</p>
+            <p id="adminInfo" style="color:#64748b;font-size:0.9rem;"></p>
+            <p>Cadastre médicos, enfermeiros e técnicos em enfermagem</p>
+        </div>
+
+        <!-- Formulário Cadastro -->
+        <div class="card form-card">
+            <h2>Novo Profissional</h2>
+            <form id="formCadastro">
+                <div class="input-group">
+                    <label>Nome Completo</label>
+                    <input type="text" id="nome" placeholder="João da Silva" required>
+                </div>
+                <div class="input-group">
+                    <label>Categoria</label>
+                    <select id="categoria" required>
+                        <option value="">Selecione</option>
+                        <option value="Médico">Médico</option>
+                        <option value="Enfermeiro">Enfermeiro</option>
+                        <option value="Técnico Enfermagem">Técnico em Enfermagem</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>Registro Conselho</label>
+                    <input type="text" id="conselho" placeholder="COREN-ES 123456" required>
+                </div>
+                <div class="input-group">
+                    <label>Login (usuário)</label>
+                    <input type="text" id="login" placeholder="joao123" required>
+                </div>
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="senha" placeholder="123456" required>
+                </div>
+                <button type="submit" class="btn-primary">Cadastrar</button>
+            </form>
+        </div>
+
+        <!-- Lista de Profissionais -->
+        <div class="card list-card">
+            <h2>Profissionais Cadastrados <span id="totalProf">0</span></h2>
+            <div id="listaProfissionais"></div>
+        </div>
+    </div>
+
+    <script src="script/dados.js"></script>
+    <script src="script/profissionais.js"></script>
+    <script src="script/protecao-profissionais.js"></script>
+</body>
+</html>
